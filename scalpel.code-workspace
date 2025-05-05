@@ -1,0 +1,344 @@
+// scalpel.code-workspace
+
+{
+    "folders": [
+      {
+        "path": ".",
+        "name": "Scalpel",
+      },
+      {
+        "path": "packages/mermaid-render",
+        "name": "Mermaid Render",
+      },
+      {
+        "path": "packages/print-project",
+        "name": "Print Project",
+      },
+    ],
+    "settings": {
+      // --- Editor Behavior & Style ---
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.detectIndentation": false,
+      "editor.suggestSelection": "first",
+      "editor.bracketPairColorization.enabled": true,
+      "editor.guides.bracketPairs": "active",
+      "editor.guides.bracketPairsHorizontal": true,
+      "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+      "editor.rulers": [80, 120],
+      "editor.linkedEditing": true,
+      "editor.suggest.insertMode": "replace",
+      "editor.inlineSuggest.enabled": true,
+      "editor.codeLens": true,
+      "editor.unicodeHighlight.ambiguousCharacters": true,
+      "editor.unicodeHighlight.invisibleCharacters": true,
+
+      // --- UI Preferences ---
+      "editor.fontFamily": "'Fira Code', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+      "editor.fontLigatures": true,
+      "editor.fontSize": 14,
+      "editor.lineHeight": 1.6,
+      "editor.wordWrap": "on",
+      "editor.minimap.enabled": true,
+      "editor.minimap.side": "right",
+      "editor.minimap.scale": 1,
+      "editor.minimap.renderCharacters": true,
+      "editor.minimap.showSlider": "always",
+      "editor.cursorBlinking": "smooth",
+      "editor.cursorSmoothCaretAnimation": "on",
+      "editor.cursorStyle": "line",
+      "editor.smoothScrolling": true,
+      "workbench.colorTheme": "Tokyo Night",
+      "workbench.iconTheme": "material-icon-theme",
+      "workbench.editor.labelFormat": "short",
+      "workbench.editor.limit.enabled": true,
+      "workbench.editor.limit.value": 15,
+      "workbench.panel.defaultLocation": "bottom",
+      "explorer.compactFolders": true,
+      "problems.autoReveal": true,
+      "problems.showCurrentInStatus": true,
+
+      // --- Folder Colors (NEW) ---
+      "workbench.colorCustomizations": {
+        "[Tokyo Night]": {
+          "activityBar.background": "#1a1b26",
+          "statusBar.background": "#1a1b26",
+          "titleBar.activeBackground": "#1a1b26"
+        },
+        "workbench.tree.root.solenoid-labs-api.badgeBackground": "#2ac3de",
+        "workbench.tree.root.solenoid-labs-core.badgeBackground": "#7aa2f7",
+        "workbench.tree.root.solenoid-labs-server.badgeBackground": "#bb9af7",
+        "workbench.tree.root.solenoid-labs-web.badgeBackground": "#7dcfff"
+      },
+
+      // Enable workbench decorations for workspace folders
+      "workbench.editor.decorations.colors": true,
+      "workbench.editor.decorations.badges": true,
+      "workbench.tree.indent": 20,
+      "workbench.tree.renderIndentGuides": "always",
+
+      // --- Files & Search ---
+      "files.encoding": "utf8",
+      "files.eol": "\n",
+      "files.insertFinalNewline": true,
+      "files.trimTrailingWhitespace": true,
+      "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules": true,
+        "**/__pycache__": true,
+        "**/.venv": true,
+        "**/.ruff_cache": true,
+        "**/.mypy_cache": true,
+        "**/.pytest_cache": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/.next": true,
+        "**/out": true,
+        "**/*.egg-info": true,
+        "**/.turbo": true,
+        "**/.vitepress/cache": true,
+      },
+      "search.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules": true,
+        "**/__pycache__": true,
+        "**/.venv": true,
+        "**/.ruff_cache": true,
+        "**/.mypy_cache": true,
+        "**/.pytest_cache": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/.next": true,
+        "**/out": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/package-lock.json": true,
+        "**/.turbo": true,
+        "**/.vitepress/cache": true,
+        "**/*.egg-info": true,
+      },
+      "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/node_modules/*/**": true,
+        "**/.hg/store/**": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.mypy_cache": true,
+        "**/.ruff_cache": true,
+      },
+
+      // --- Formatting & Linting ---
+      "editor.formatOnSave": false,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "prettier.requireConfig": true,
+      "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
+      "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.stylelint": "explicit",
+      },
+      "[python]": {
+        "editor.defaultFormatter": "charliermarsh.ruff",
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+          "source.fixAll": "explicit",
+          "source.organizeImports": "explicit",
+        },
+      },
+      "[shellscript]": {
+        "editor.defaultFormatter": "foxundermoon.shell-format",
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+          "source.fixAll.shellcheck": "explicit",
+        },
+      },
+      "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false,
+      },
+      "[jsonc]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false,
+      },
+      "[markdown]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "files.trimTrailingWhitespace": false,
+        "editor.formatOnSave": false,
+      },
+      "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false,
+      },
+      "[scss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": false,
+      },
+      "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml",
+        "editor.formatOnSave": false,
+      },
+      "[scala]": {
+        "editor.defaultFormatter": "scalameta.metals",
+        "editor.formatOnSave": false,
+      },
+
+      // --- Python ---
+      "python.defaultInterpreterPath": "python3",
+      "python.languageServer": "Pylance",
+      "python.analysis.typeCheckingMode": "basic",
+      "python.analysis.autoImportCompletions": true,
+      "python.analysis.indexing": true,
+      "ruff.importStrategy": "fromEnvironment",
+      "python.testing.pytestEnabled": true,
+      "python.testing.unittestEnabled": false,
+      "python.testing.pytestArgs": ["tests"],
+      "python.analysis.diagnosticMode": "openFilesOnly",
+      "python.analysis.diagnosticSeverityOverrides": {
+        "reportMissingImports": "none",
+        "reportMissingModuleSource": "none",
+      },
+
+      // --- TypeScript / JavaScript Specific ---
+      "typescript.updateImportsOnFileMove.enabled": "always",
+      "javascript.updateImportsOnFileMove.enabled": "always",
+      "typescript.suggest.autoImports": true,
+      "javascript.suggest.autoImports": true,
+      "typescript.inlayHints.parameterNames.enabled": "all",
+      "javascript.inlayHints.parameterNames.enabled": "all",
+      "typescript.inlayHints.variableTypes.enabled": true,
+      "javascript.inlayHints.variableTypes.enabled": true,
+
+      // Tailwind CSS Configuration
+      "tailwindCSS.includeLanguages": {
+        "typescript": "javascript",
+        "typescriptreact": "javascript"
+      },
+      "tailwindCSS.emmetCompletions": true,
+      "files.associations": {
+        "*.css": "tailwindcss",
+        "*.scss": "scss",
+        "*.postcss": "postcss"
+      },
+      "tailwindCSS.experimental.classRegex": [
+        ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+        ["cva\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+        ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+      ],
+      "tailwindCSS.validate": true,
+
+      // --- Database ---
+
+      // --- Markdown ---
+      "markdown.preview.scrollEditorWithPreview": true,
+      "markdown.preview.scrollPreviewWithEditor": true,
+
+      // --- Spell Checker ---
+      "cSpell.customDictionaries": {
+        "project-dictionary": {
+          "name": "project-dictionary",
+          "path": "${workspaceFolder}/.vscode/project-dictionary.txt",
+          "addWords": true,
+          "scope": "workspace",
+        },
+      },
+      "cSpell.dictionaries": ["project-dictionary"],
+      "cSpell.enabled": true,
+      "cSpell.validateDirectives": true,
+      "cSpell.ignorePaths": [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**/build/**",
+        "**/coverage/**",
+        "**/.git/**",
+        "package-lock.json",
+        "pnpm-lock.yaml",
+        "**/*.svg",
+        "**/*.ttf",
+        "**/*.woff",
+        "**/*.woff2",
+        "**/.turbo/**",
+        "**/.vitepress/cache/**",
+        "**/__pycache__/**",
+        "**/.venv/**",
+        "**/.ruff_cache/**",
+        "**/.mypy_cache/**",
+        "**/.pytest_cache/**",
+      ],
+
+      // --- Terminal ---
+      "terminal.integrated.cursorBlinking": true,
+      "terminal.integrated.smoothScrolling": true,
+
+      // --- Git ---
+      "git.enableSmartCommit": true,
+      "git.confirmSync": false,
+      "git.autofetch": true,
+      "git.ignoreLimitWarning": true,
+      "gitlens.codeLens.enabled": true,
+      "gitlens.currentLine.enabled": true,
+      "gitlens.hovers.currentLine.over": "line",
+
+      // --- Jupyter / Data Science ---
+      "jupyter.interactiveWindow.creationMode": "perFile",
+      "jupyter.interactiveWindow.textEditor.executeSelection": true,
+      "jupyter.disableJupyterAutoStart": false,
+      "notebook.cellToolbarLocation": { "default": "right", "jupyter-notebook": "right" },
+      "notebook.lineNumbers": "on",
+      "notebook.output.scrolling": true,
+    },
+    "extensions": {
+      "recommendations": [
+        "EditorConfig.EditorConfig",
+        "eamodio.gitlens",
+        "github.vscode-pull-request-github",
+        "github.vscode-github-actions",
+        "streetsidesoftware.code-spell-checker",
+        "Gruntfuggly.todo-tree",
+        "aaron-bond.better-comments",
+        "mikestead.dotenv",
+        "christian-kohler.path-intellisense",
+        "enkia.tokyo-night",
+        "pkief.material-icon-theme",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "csstools.postcss",
+        "ms-vscode.vscode-typescript-next",
+        "ritwickdey.LiveServer",
+        "ecmel.vscode-html-css",
+        "zignd.html-css-class-completion",
+        "htmlhint.vscode-htmlhint",
+        "DigitalBrainstem.javascript-ejs-support",
+        "steoates.autoimport",
+        "dsznajder.es7-react-js-snippets",
+        "scalameta.metals",
+        "scala-lang.scala",
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff",
+        "ms-toolsai.jupyter",
+        "njpwerner.autodocstring",
+        "mechatroner.rainbow-csv",
+        "ms-azuretools.vscode-containers",
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "bierner.markdown-mermaid",
+        "redhat.vscode-yaml",
+        "tamasfe.even-better-toml",
+        "jock.svg",
+        "hediet.vscode-drawio",
+        "timonwong.shellcheck",
+        "foxundermoon.shell-format",
+      ],
+    },
+  }

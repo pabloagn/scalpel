@@ -1,0 +1,156 @@
+# print-project/config.toml
+
+[project]
+# Root directory of the project.
+# Accepts absolute or relative paths.
+root = ".."
+
+[output]
+# Output file path, relative to the project root defined above.
+file = "utils/project_structure.md"
+
+[tree]
+# Maximum depth for the directory tree traversal.
+# Comment out or remove for unlimited depth.
+depth = 6
+
+# List of glob patterns (relative to project root) to ignore completely.
+# These paths/files won't appear in the tree or have their content included.
+# Uses fnmatch rules (similar to .gitignore)
+ignore = [
+  # --- Custom ---
+  ".bkp/",
+
+  # --- Version Control ---
+  ".git/",
+  ".svn/",
+  ".hg/",
+  ".bzr/",
+
+  # --- IDE / Editor Config ---
+  ".vscode/",
+  ".idea/",           # JetBrains IDEs (IntelliJ, PyCharm, WebStorm, etc.)
+  ".project",         # Eclipse
+  ".classpath",       # Eclipse
+  ".settings/",       # Eclipse
+  "*.sublime-project",
+  "*.sublime-workspace",
+  "*.tmproj",         # TextMate
+  ".DS_Store",        # macOS
+  "Thumbs.db",        # Windows Thumbnail Cache
+  "Desktop.ini",      # Windows Folder Customization
+
+  # --- Dependency Directories ---
+  "node_modules/",
+  "bower_components/",
+  "vendor/",          # Common for Go, PHP, Ruby
+  "target/",          # Rust, Scala (sbt, Maven), Java (Maven)
+  "build/",           # Common for C++, Java (Gradle), CMake, CRA, many others
+  "dist/",            # Common for Python packages, JS bundles, etc.
+  ".cache/",          # Generic cache, used by Gatsby, Parcel, etc.
+  ".parcel-cache/",   # Parcel bundler
+
+  # --- Python Specific ---
+  "__pycache__/",
+  "*.pyc",
+  "*.pyo",
+  "*.pyd",
+  ".venv/",           # Standard virtualenv name
+  "venv/",            # Common virtualenv name
+  "env/",             # Another common virtualenv name
+  ".env/",            # Yet another
+  "*.egg-info/",
+  "*.egg",
+  ".pytest_cache/",
+  ".mypy_cache/",
+  ".ruff_cache/",
+  "htmlcov/",         # HTML coverage reports (e.g., from coverage.py)
+  "pip-wheel-metadata/",
+
+  # --- Node.js / JavaScript / Frontend Specific ---
+  ".npm/",            # npm cache
+  ".pnpm-store/",     # pnpm content-addressable store
+  ".yarn/",           # Yarn 2+ cache/install location (Zero-Installs)
+  "coverage/",        # Test coverage reports (Jest, Vitest, Istanbul)
+  "storybook-static/",# Storybook build output
+
+  # Framework specific build/cache outputs:
+  ".next/",           # Next.js
+  ".nuxt/",           # Nuxt.js
+  ".svelte-kit/",     # SvelteKit
+  ".angular/",        # Angular CLI cache
+  "public/build/",    # Remix default build output location
+
+  # --- Scala / Java Specific ---
+  ".bloop/",          # Bloop build server metadata
+  ".metals/",         # Metals LSP metadata
+  ".bsp/",            # Build Server Protocol metadata
+  "project/target/",  # sbt meta-build target
+  "project/project/", # sbt meta-build project dir (usually contains target/)
+  "*.class",
+  "*.jar",
+  "*.war",
+  "*.ear",
+
+  # --- Rust Specific ---
+  # target/ already covered
+  # "Cargo.lock",     # Often committed, consider if needed in docs
+  "*.rlib",
+  "*.rmeta",
+
+  # --- Go Specific ---
+  # vendor/ already covered
+  # *.exe, *.test, *.prof are often binary names matching the project/package
+
+  # --- Monorepo Tools ---
+  ".turbo/",          # Turborepo cache
+
+  # --- Log Files ---
+  "*.log",
+  "logs/",
+  "npm-debug.log*",
+  "yarn-debug.log*",
+  "yarn-error.log*",
+
+  # --- Temporary & Backup Files ---
+  "*.tmp",
+  "*.temp",
+  "*~",
+  "*.bak",
+  "*.swp",
+  "*.swo",
+
+  # --- Secrets / Environment ---
+  # NOTE: Caution here, ensure actual secrets aren't checked in!
+  ".env*",
+  "!.env.example",
+  "!.env.template",
+  "secrets.*",
+  "*.pem",
+  "*.key",
+
+  # --- Compressed Files ---
+  "*.zip",
+  "*.tar",
+  "*.gz", "*.tgz",
+  "*.rar",
+  "*.7z",
+]
+
+# List of paths or glob patterns (relative to project root) to explicitly
+# include in the tree structure, even if they are empty or don't contain
+# files listed in [content].include_files. Ensures these branches are visible.
+include = [
+    "packages/",
+]
+
+
+[content]
+# List of files or glob patterns (relative to project root) whose content
+# should be included in the markdown output as code blocks.
+# These files (and their parent dirs) will automatically appear in the tree.
+# Ignored files (from tree.ignore) will NOT be included here, even if matched.
+include_files = [
+    "pyproject.toml",
+    "turbo.json",
+]
