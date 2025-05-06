@@ -1,0 +1,603 @@
+{
+  "version": "1.0",
+  "templates": {
+    "repositories": {
+      "default": "./packages/template-manager/templates",
+      "custom": "./packages/template-manager/custom-templates"
+    },
+    "available": {
+      "web/nextjs": {
+        "path": "web/nextjs",
+        "category": "web",
+        "description": "Next.js 14+ with TypeScript, Tailwind, and App Router",
+        "features": ["vscode", "docker", "eslint", "prettier", "tailwind", "typescript"],
+        "repository": "default"
+      },
+      "web/react-ts": {
+        "path": "web/react-ts",
+        "category": "web",
+        "description": "React with TypeScript and Vite",
+        "features": ["vscode", "eslint", "prettier", "typescript", "vite"],
+        "repository": "default"
+      },
+      "web/astro": {
+        "path": "web/astro",
+        "category": "web",
+        "description": "Astro with Tailwind CSS",
+        "features": ["vscode", "eslint", "prettier", "tailwind", "astro"],
+        "repository": "default"
+      },
+      "data-science/python": {
+        "path": "data-science/python",
+        "category": "data-science",
+        "description": "Python data science project with Jupyter",
+        "features": ["vscode", "jupyter", "poetry", "python", "docker"],
+        "repository": "default"
+      },
+      "data-science/pytorch": {
+        "path": "data-science/pytorch",
+        "category": "data-science",
+        "description": "PyTorch ML project setup",
+        "features": ["vscode", "jupyter", "poetry", "python", "pytorch", "docker"],
+        "repository": "default"
+      },
+      "api/express-ts": {
+        "path": "api/express-ts",
+        "category": "backend",
+        "description": "Express TypeScript API",
+        "features": ["vscode", "docker", "eslint", "prettier", "typescript", "swagger"],
+        "repository": "default"
+      },
+      "api/fastapi": {
+        "path": "api/fastapi",
+        "category": "backend",
+        "description": "FastAPI Python REST API",
+        "features": ["vscode", "docker", "python", "poetry", "swagger"],
+        "repository": "default"
+      },
+      "fullstack/nextjs-fastapi": {
+        "path": "fullstack/nextjs-fastapi",
+        "category": "fullstack",
+        "description": "Full-stack Next.js with FastAPI backend",
+        "features": ["vscode", "docker", "nextjs", "fastapi", "python", "typescript"],
+        "repository": "default"
+      }
+    }
+  },
+  "features": {
+    "vscode": {
+      "description": "VS Code Workspace",
+      "files": {
+        ".vscode/settings.json": {
+          "editor.formatOnSave": false,
+          "editor.tabSize": 2,
+          "editor.insertSpaces": true,
+          "editor.detectIndentation": false,
+          "editor.suggestSelection": "first",
+          "editor.bracketPairColorization.enabled": true,
+          "editor.guides.bracketPairs": "active",
+          "editor.guides.bracketPairsHorizontal": true,
+          "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+          "editor.rulers": [80, 120],
+          "editor.linkedEditing": true,
+          "editor.suggest.insertMode": "replace",
+          "editor.inlineSuggest.enabled": true,
+          "editor.codeLens": true,
+          "editor.unicodeHighlight.ambiguousCharacters": true,
+          "editor.unicodeHighlight.invisibleCharacters": true,
+          "editor.fontFamily": "'Fira Code', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+          "editor.fontLigatures": true,
+          "editor.fontSize": 14,
+          "editor.lineHeight": 1.6,
+          "editor.wordWrap": "on",
+          "editor.minimap.enabled": true,
+          "editor.cursorBlinking": "smooth",
+          "editor.cursorSmoothCaretAnimation": "on",
+          "editor.smoothScrolling": true,
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "files.encoding": "utf8",
+          "files.eol": "\n",
+          "files.insertFinalNewline": true,
+          "files.trimTrailingWhitespace": true,
+          "editor.codeActionsOnSave": {
+            "source.fixAll.eslint": "explicit",
+            "source.fixAll.stylelint": "explicit"
+          }
+        },
+        ".vscode/extensions.json": {
+          "recommendations": [
+            "EditorConfig.EditorConfig",
+            "eamodio.gitlens",
+            "github.vscode-pull-request-github",
+            "github.vscode-github-actions",
+            "streetsidesoftware.code-spell-checker",
+            "Gruntfuggly.todo-tree",
+            "aaron-bond.better-comments",
+            "mikestead.dotenv",
+            "christian-kohler.path-intellisense",
+            "enkia.tokyo-night",
+            "pkief.material-icon-theme",
+            "dbaeumer.vscode-eslint",
+            "esbenp.prettier-vscode"
+          ]
+        }
+      }
+    },
+    "typescript": {
+      "description": "TypeScript configuration",
+      "files": {
+        "tsconfig.json": {
+          "compilerOptions": {
+            "target": "ES2021",
+            "lib": ["DOM", "DOM.Iterable", "ES2021"],
+            "allowJs": true,
+            "skipLibCheck": true,
+            "strict": true,
+            "forceConsistentCasingInFileNames": true,
+            "noEmit": true,
+            "esModuleInterop": true,
+            "module": "CommonJS",
+            "moduleResolution": "node",
+            "resolveJsonModule": true,
+            "isolatedModules": true,
+            "jsx": "preserve",
+            "incremental": true,
+            "baseUrl": ".",
+            "paths": {
+              "@/*": ["./src/*"]
+            }
+          },
+          "include": ["src", "types"],
+          "exclude": ["node_modules"]
+        }
+      },
+      "vscode_settings": {
+        "typescript.updateImportsOnFileMove.enabled": "always",
+        "typescript.suggest.autoImports": true,
+        "typescript.inlayHints.parameterNames.enabled": "all",
+        "typescript.inlayHints.variableTypes.enabled": true,
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescriptreact]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        }
+      },
+      "required_extensions": [
+        "ms-vscode.vscode-typescript-next"
+      ]
+    },
+    "python": {
+      "description": "Python development configuration",
+      "files": {
+        "pyproject.toml": {
+          "[tool.poetry]": {
+            "name": "{{project_name}}",
+            "version": "0.1.0",
+            "description": "",
+            "authors": ["Your Name <you@example.com>"]
+          },
+          "[tool.poetry.dependencies]": {
+            "python": "^3.11"
+          },
+          "[tool.poetry.dev-dependencies]": {
+            "pytest": "^7.0.0",
+            "black": "^23.1.0",
+            "isort": "^5.12.0",
+            "mypy": "^1.0.0",
+            "flake8": "^6.0.0"
+          },
+          "[tool.black]": {
+            "line-length": 88,
+            "target-version": ["py311"]
+          },
+          "[tool.isort]": {
+            "profile": "black",
+            "multi_line_output": 3
+          },
+          "[tool.mypy]": {
+            "python_version": "3.11",
+            "strict": true
+          }
+        },
+        ".gitignore": [
+          "__pycache__/",
+          "*.py[cod]",
+          "*$py.class",
+          "*.so",
+          ".Python",
+          "build/",
+          "develop-eggs/",
+          "dist/",
+          "downloads/",
+          "eggs/",
+          ".eggs/",
+          "lib/",
+          "lib64/",
+          "parts/",
+          "sdist/",
+          "var/",
+          "wheels/",
+          "pip-wheel-metadata/",
+          "share/python-wheels/",
+          "*.egg-info/",
+          ".installed.cfg",
+          "*.egg",
+          ".ipynb_checkpoints",
+          ".env",
+          ".venv",
+          "env/",
+          "venv/",
+          "ENV/",
+          "env.bak/",
+          "venv.bak/",
+          ".mypy_cache/",
+          ".dmypy.json",
+          "dmypy.json",
+          ".pytest_cache/"
+        ]
+      },
+      "vscode_settings": {
+        "python.defaultInterpreterPath": "python3",
+        "python.languageServer": "Pylance",
+        "python.analysis.typeCheckingMode": "basic",
+        "python.analysis.autoImportCompletions": true,
+        "python.testing.pytestEnabled": true,
+        "python.testing.unittestEnabled": false,
+        "python.testing.pytestArgs": ["tests"],
+        "[python]": {
+          "editor.defaultFormatter": "charliermarsh.ruff",
+          "editor.formatOnSave": false,
+          "editor.codeActionsOnSave": {
+            "source.fixAll": "explicit",
+            "source.organizeImports": "explicit"
+          }
+        }
+      },
+      "required_extensions": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "charliermarsh.ruff"
+      ]
+    },
+    "nextjs": {
+      "description": "Next.js 14+ configuration",
+      "files": {
+        "package.json": {
+          "name": "{{project_name}}",
+          "version": "0.1.0",
+          "private": true,
+          "scripts": {
+            "dev": "next dev",
+            "build": "next build",
+            "start": "next start",
+            "lint": "next lint",
+            "type-check": "tsc --noEmit"
+          },
+          "dependencies": {
+            "next": "14.0.0",
+            "react": "^18",
+            "react-dom": "^18"
+          },
+          "devDependencies": {
+            "@types/node": "^20",
+            "@types/react": "^18",
+            "@types/react-dom": "^18",
+            "autoprefixer": "^10",
+            "eslint": "^8",
+            "eslint-config-next": "14.0.0",
+            "postcss": "^8",
+            "tailwindcss": "^3",
+            "typescript": "^5"
+          }
+        },
+        "next.config.mjs": "/** @type {import('next').NextConfig} */\nconst nextConfig = {\n  experimental: {\n    appDir: true,\n  },\n}\n\nmodule.exports = nextConfig\n",
+        "app/layout.tsx": "export default function RootLayout({\n  children,\n}: {\n  children: React.ReactNode\n}) {\n  return (\n    <html lang=\"en\">\n      <body>{children}</body>\n    </html>\n  )\n}\n",
+        "app/page.tsx": "export default function Home() {\n  return (\n    <main className=\"flex min-h-screen flex-col items-center justify-between p-24\">\n      <h1 className=\"text-4xl font-bold\">{{project_name}}</h1>\n    </main>\n  )\n}\n"
+      },
+      "vscode_settings": {
+        "typescript.preferences.importModuleSpecifier": "non-relative",
+        "typescript.preferences.includePackageJsonAutoImports": "on"
+      },
+      "required_extensions": [
+        "bradlc.vscode-tailwindcss",
+        "ms-vscode.vscode-typescript-next"
+      ]
+    },
+    "tailwind": {
+      "description": "Tailwind CSS configuration",
+      "files": {
+        "tailwind.config.ts": "import type { Config } from 'tailwindcss'\n\nconst config: Config = {\n  content: [\n    './src/pages/**/*.{js,ts,jsx,tsx,mdx}',\n    './src/components/**/*.{js,ts,jsx,tsx,mdx}',\n    './src/app/**/*.{js,ts,jsx,tsx,mdx}',\n  ],\n  theme: {\n    extend: {\n      // Custom theme extensions\n    },\n  },\n  plugins: [],\n}\nexport default config\n",
+        "src/styles/globals.css": "@tailwind base;\n@tailwind components;\n@tailwind utilities;\n\n@layer base {\n  html {\n    @apply h-full;\n  }\n  body {\n    @apply h-full;\n  }\n}\n",
+        "postcss.config.js": "module.exports = {\n  plugins: {\n    tailwindcss: {},\n    autoprefixer: {},\n  },\n}\n"
+      },
+      "vscode_settings": {
+        "tailwindCSS.includeLanguages": {
+          "typescript": "javascript",
+          "typescriptreact": "javascript"
+        },
+        "tailwindCSS.emmetCompletions": true,
+        "files.associations": {
+          "*.css": "tailwindcss"
+        },
+        "tailwindCSS.experimental.classRegex": [
+          ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+          ["cva\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"],
+          ["cn\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+        ]
+      },
+      "required_extensions": [
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode",
+        "csstools.postcss"
+      ]
+    },
+    "jupyter": {
+      "description": "Jupyter notebook configuration",
+      "files": {
+        ".gitignore": [
+          "# Jupyter",
+          ".ipynb_checkpoints",
+          "*/.ipynb_checkpoints/*",
+          "profile_default/",
+          "ipython_config.py",
+          "# Python",
+          "*.pyc",
+          "__pycache__/"
+        ]
+      },
+      "vscode_settings": {
+        "jupyter.interactiveWindow.creationMode": "perFile",
+        "jupyter.interactiveWindow.textEditor.executeSelection": true,
+        "jupyter.disableJupyterAutoStart": false,
+        "notebook.cellToolbarLocation": {
+          "default": "right",
+          "jupyter-notebook": "right"
+        },
+        "notebook.lineNumbers": "on",
+        "notebook.output.scrolling": true
+      },
+      "required_extensions": [
+        "ms-toolsai.jupyter"
+      ]
+    },
+    "poetry": {
+      "description": "Poetry Python dependency management",
+      "files": {
+        "poetry.lock": null,
+        ".python-version": "3.11"
+      },
+      "vscode_settings": {
+        "python.poetry.enabled": true,
+        "ruff.importStrategy": "fromEnvironment"
+      }
+    },
+    "docker": {
+      "description": "Docker containerization support",
+      "files": {
+        "Dockerfile": "# Production stage\nFROM node:18-alpine AS production\n\nWORKDIR /app\n\n# Copy package files\nCOPY package*.json ./\nCOPY pnpm-lock.yaml ./\n\n# Install dependencies\nRUN npm install -g pnpm\nRUN pnpm install --frozen-lockfile\n\n# Copy source files\nCOPY . .\n\n# Build the application\nRUN pnpm build\n\n# Expose port\nEXPOSE 3000\n\n# Start the application\nCMD [\"pnpm\", \"start\"]\n",
+        "docker-compose.yml": "version: '3.8'\n\nservices:\n  app:\n    build:\n      context: .\n      dockerfile: Dockerfile\n    ports:\n      - '3000:3000'\n    environment:\n      - NODE_ENV=production\n    restart: unless-stopped\n",
+        ".dockerignore": [
+          "node_modules",
+          "npm-debug.log",
+          "Dockerfile",
+          ".dockerignore",
+          ".git",
+          ".gitignore",
+          "README.md",
+          ".env",
+          ".env.local",
+          ".next",
+          ".vscode",
+          "coverage"
+        ]
+      },
+      "vscode_settings": {},
+      "required_extensions": [
+        "ms-azuretools.vscode-containers"
+      ]
+    },
+    "eslint": {
+      "description": "ESLint JavaScript/TypeScript linting",
+      "files": {
+        ".eslintrc.json": {
+          "extends": ["next/core-web-vitals", "prettier"],
+          "rules": {
+            "prefer-const": "error",
+            "no-var": "error",
+            "@typescript-eslint/consistent-type-definitions": ["error", "interface"]
+          }
+        },
+        ".eslintignore": [
+          "node_modules",
+          ".next",
+          "out",
+          "dist",
+          "build"
+        ]
+      },
+      "vscode_settings": {
+        "eslint.validate": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ],
+        "eslint.format.enable": true
+      },
+      "required_extensions": [
+        "dbaeumer.vscode-eslint"
+      ]
+    },
+    "prettier": {
+      "description": "Prettier code formatting",
+      "files": {
+        ".prettierrc": {
+          "semi": true,
+          "trailingComma": "all",
+          "singleQuote": true,
+          "printWidth": 80,
+          "tabWidth": 2,
+          "useTabs": false,
+          "endOfLine": "lf"
+        },
+        ".prettierignore": [
+          "node_modules",
+          ".next",
+          "out",
+          "dist",
+          "build",
+          "package-lock.json",
+          "pnpm-lock.yaml"
+        ]
+      },
+      "vscode_settings": {
+        "prettier.requireConfig": true,
+        "[javascript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[typescript]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[json]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode"
+        },
+        "[markdown]": {
+          "editor.defaultFormatter": "esbenp.prettier-vscode",
+          "files.trimTrailingWhitespace": false
+        }
+      },
+      "required_extensions": [
+        "esbenp.prettier-vscode"
+      ]
+    },
+    "git": {
+      "description": "Git version control",
+      "files": {
+        ".gitignore": [
+          "# Dependencies",
+          "node_modules/",
+          "# Production",
+          "/build",
+          "/dist",
+          "# Misc",
+          ".DS_Store",
+          ".env.local",
+          ".env.development.local",
+          ".env.test.local",
+          ".env.production.local",
+          "# Logs",
+          "npm-debug.log*",
+          "yarn-debug.log*",
+          "yarn-error.log*",
+          "pnpm-debug.log*",
+          "# Editor directories and files",
+          ".idea",
+          ".vscode/*",
+          "!.vscode/settings.json",
+          "!.vscode/extensions.json",
+          "*.swp",
+          "*.swo",
+          "*~"
+        ],
+        ".gitattributes": [
+          "* text=auto",
+          "*.sh text eol=lf"
+        ]
+      },
+      "vscode_settings": {
+        "git.enableSmartCommit": true,
+        "git.confirmSync": false,
+        "git.autofetch": true,
+        "git.ignoreLimitWarning": true,
+        "gitlens.codeLens.enabled": true,
+        "gitlens.currentLine.enabled": true
+      },
+      "required_extensions": [
+        "eamodio.gitlens"
+      ]
+    }
+  },
+  "workspace": {
+    "defaultExtensions": [
+      "EditorConfig.EditorConfig",
+      "eamodio.gitlens",
+      "github.vscode-pull-request-github",
+      "github.vscode-github-actions",
+      "streetsidesoftware.code-spell-checker",
+      "Gruntfuggly.todo-tree",
+      "aaron-bond.better-comments",
+      "mikestead.dotenv",
+      "christian-kohler.path-intellisense",
+      "enkia.tokyo-night",
+      "pkief.material-icon-theme",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode"
+    ],
+    "settings": {
+      "editor.formatOnSave": false,
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true,
+      "editor.detectIndentation": false,
+      "editor.suggestSelection": "first",
+      "editor.fontFamily": "'Fira Code', 'JetBrains Mono', Menlo, Monaco, 'Courier New', monospace",
+      "editor.fontLigatures": true,
+      "editor.fontSize": 14,
+      "editor.lineHeight": 1.6,
+      "editor.defaultFormatter": "esbenp.prettier-vscode",
+      "workbench.colorTheme": "Tokyo Night",
+      "workbench.iconTheme": "material-icon-theme",
+      "files.encoding": "utf8",
+      "files.eol": "\n",
+      "files.insertFinalNewline": true,
+      "files.trimTrailingWhitespace": true,
+      "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules": true,
+        "**/__pycache__": true,
+        "**/.venv": true,
+        "**/.ruff_cache": true,
+        "**/.mypy_cache": true,
+        "**/.pytest_cache": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/.next": true,
+        "**/out": true,
+        "**/*.egg-info": true,
+        "**/.turbo": true,
+        "**/.vitepress/cache": true
+      },
+      "search.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true,
+        "**/node_modules": true,
+        "**/__pycache__": true,
+        "**/.venv": true,
+        "**/.ruff_cache": true,
+        "**/.mypy_cache": true,
+        "**/.pytest_cache": true,
+        "**/dist": true,
+        "**/build": true,
+        "**/.next": true,
+        "**/out": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/package-lock.json": true,
+        "**/.turbo": true,
+        "**/.vitepress/cache": true,
+        "**/*.egg-info": true
+      },
+      "terminal.integrated.cursorBlinking": true,
+      "terminal.integrated.smoothScrolling": true
+    }
+  }
+}
